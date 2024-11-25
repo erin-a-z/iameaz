@@ -3,15 +3,21 @@ h1.title {
     font-weight: 400;
     font-style: normal;
     font-size: 600%;
-    margin-top: 0;
-    margin-bottom: 0;
   }
 
 
-h1{
+h1, h2{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.project-title {
+    font-family: "Funnel Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 400%;
+    font-style: normal;
 }
 
 .text {
@@ -41,6 +47,7 @@ h1{
     align-items: center;
     justify-content: center; /* Center the content container */
     animation: fadeIn 2s ease-in-out;
+    max-width: 90%;
 }
 
 .image-container {
@@ -51,6 +58,21 @@ h1{
 .text-container {
     max-width: 500px; /* Adjust the width as needed */
     animation: slideInRight 1s ease-in-out;
+}
+
+.project-container {
+    display:block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+
 }
 
 @keyframes fadeIn {

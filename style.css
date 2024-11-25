@@ -18,10 +18,11 @@
   cursor: pointer;
 }
 
+
+
 body {
   background-color: var(--color-bg);
   color: var(--color-fg);
-  display: grid;
   min-height: 100vh;
   /* place-items: center; */
 }
@@ -86,9 +87,20 @@ a.link.home:hover {
 } */
 
 #toggleTheme img {
-  width: 40px;
-  height: 40px;
+  width: 10vw;
+  height: 10vw;
+  max-width: 40px;
+  max-height: 40px;
   transition: transform 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  #toggleTheme img {
+      width: 20vw;
+      height: 20vw;
+      max-width: 80px;
+      max-height: 80px;
+  }
 }
 
 #toggleTheme img:hover {
