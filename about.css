@@ -1,0 +1,42 @@
+h1.title {
+    font-family: "Love Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 600%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.montserrat-100 {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-size: 200%;
+    font-style: normal;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content container */
+}
+
+.image-container {
+    margin-right: 20px; /* Adjust the spacing between image and text as needed */
+}
+
+.text-container {
+    max-width: 500px; /* Adjust the width as needed */
+}

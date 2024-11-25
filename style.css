@@ -1,0 +1,60 @@
+/* Dark-Light Mode */
+[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-fg: #000000;
+}
+
+[data-theme="dark"] {
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+}
+
+#toggleTheme {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  display: grid;
+  min-height: 100vh;
+  /* place-items: center; */
+}
+
+#tti {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+a.link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+a.link.home:link,
+a.link.home:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* I */
+/* .about {
+  color: blue;
+} */
+
+#toggleTheme img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+#toggleTheme img:hover {
+  transform: rotate(360deg);
+}
+
+/* .about:link {} */
