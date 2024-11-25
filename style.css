@@ -30,16 +30,54 @@ body {
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-a.link {
+a.link, a.link-text, a.link-icon {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+a.link-text::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+
+a.link-text:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+a.link-icon {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+a.link-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 a.link.home:link,
 a.link.home:visited {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease-in-out;
+}
+
+a.link.home:hover {
+  color: #d53a9d; /* Change to your desired hover color */
 }
 
 /* I */
