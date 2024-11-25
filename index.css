@@ -1,5 +1,81 @@
 h1.title {
-    text-align: center;
-    font-size: 400%;
-    font-family: "Tourney", cursive;
+    font-family: "Love Light", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 600%;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-family: "Funnel Display", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-size: 200%;
+    font-style: normal;
+}
+
+.profile-picture {
+    border: 5px solid #3da2c2;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.profile-picture:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(55, 162, 153, 0.3);
+}
+
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content container */
+    animation: fadeIn 2s ease-in-out;
+}
+
+.image-container {
+    margin-right: 5vw; /* Adjust the spacing between image and text as needed */
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.text-container {
+    max-width: 500px; /* Adjust the width as needed */
+    animation: slideInRight 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
