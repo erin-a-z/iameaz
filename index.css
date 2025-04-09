@@ -5,6 +5,9 @@ h1.title {
     font-size: 600%;
     margin-top: 0;
     margin-bottom: 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 
 
@@ -12,6 +15,7 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .text {
@@ -20,6 +24,8 @@ h1{
     font-weight: 200;
     font-size: 200%;
     font-style: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .profile-picture {
@@ -28,6 +34,10 @@ h1{
     border-width: 5px;
     border-radius: 50%;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    height: 500px;
+    width: 500px;
+    max-width: 100%;
+    object-fit: cover;
 }
 
 .profile-picture:hover {
@@ -41,16 +51,28 @@ h1{
     align-items: center;
     justify-content: center; /* Center the content container */
     animation: fadeIn 2s ease-in-out;
+    width: 100%;
+    max-width: 100%;
 }
 
 .image-container {
     margin-right: 5vw; /* Adjust the spacing between image and text as needed */
     animation: slideInLeft 1s ease-in-out;
+    display: flex;
+    justify-content: center;
 }
 
 .text-container {
     max-width: 500px; /* Adjust the width as needed */
     animation: slideInRight 1s ease-in-out;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @keyframes fadeIn {
