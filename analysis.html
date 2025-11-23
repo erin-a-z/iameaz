@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Real Analysis Visualizer | Erin Zhang</title>
+  <script src="https://kit.fontawesome.com/a840cfd14f.js" crossorigin="anonymous"></script>
+  <!-- MathJax for rendering equations -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <link rel="stylesheet" type="text/css" href="./analysis.css" />
+  <link rel="stylesheet" type="text/css" href="./responsive.css" />
+  <link rel="icon" type="image/png" href="images/favicon 32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicon 16x16.png" sizes="16x16" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Love+Light&family=Funnel+Display:wght@300..800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <a class="link home" href="./index.html"><i class="fa-solid fa-arrow-left"></i> Back</a>
+  </nav>
+
+  <h1 class="title">Real Analysis Visualizer</h1>
+  <p class="subtitle">Exploring the counter-intuitive world of infinite sums and limits.</p>
+
+  <div class="darkMode_wrapper">
+    <button type="button" id="toggleTheme">
+      <img id="tti" aria-label="Change to dark theme" src="images/Moon.png" />
+    </button>
+  </div>
+
+  <div class="container analysis-container">
+
+    <!-- Module 1: Weierstrass Function -->
+    <section id="weierstrass" class="module">
+      <div class="module-header">
+        <h2>The Weierstrass Function</h2>
+        <p>Continuous everywhere, differentiable nowhere.</p>
+        <div class="math-display">
+          $$ f(x) = \sum_{n=0}^{\infty} a^n \cos(b^n \pi x) $$
+        </div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="weierstrassCanvas"></canvas>
+        <div class="controls">
+          <div class="control-group">
+            <label for="paramA">a (0 < a < 1): <span id="valA">0.5</span></label>
+            <input type="range" id="paramA" min="0.1" max="0.9" step="0.05" value="0.5">
+          </div>
+          <div class="control-group">
+            <label for="paramB">b (odd integer): <span id="valB">7</span></label>
+            <input type="range" id="paramB" min="3" max="21" step="2" value="7">
+          </div>
+          <div class="control-group">
+            <label for="zoomLevel">Zoom: <span id="valZoom">1x</span></label>
+            <input type="range" id="zoomLevel" min="1" max="1000" step="10" value="1">
+          </div>
+          <button id="resetWeierstrass" class="btn">Reset View</button>
+        </div>
+      </div>
+      <p class="explanation">
+        This function is a "fractal curve". No matter how much you zoom in, it never becomes a straight line (smooth).
+        Standard calculus breaks down here. Try increasing <b>b</b> to add more "noise", or zoom in to see the
+        self-similarity.
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Module 2: Epsilon-Delta -->
+    <section id="epsilon-delta" class="module">
+      <div class="module-header">
+        <h2>The Epsilon-Delta Game</h2>
+        <p>Visualizing the formal definition of a limit.</p>
+        <div class="math-display">
+          $$ \forall \epsilon > 0, \exists \delta > 0 \text{ s.t. } 0 < |x - c| < \delta \implies |f(x) - L| < \epsilon
+            $$ </div>
+        </div>
+
+        <div class="canvas-wrapper">
+          <canvas id="epsilonCanvas"></canvas>
+          <div class="controls">
+            <div class="control-group">
+              <label>Target Point (c): <span id="valC">2</span></label>
+              <input type="range" id="paramC" min="-3" max="3" step="0.1" value="2">
+            </div>
+            <div class="control-group">
+              <label>Epsilon ($\epsilon$): <span id="valEpsilon">0.5</span></label>
+              <input type="range" id="paramEpsilon" min="0.1" max="2" step="0.1" value="0.5">
+            </div>
+            <div class="control-group">
+              <label>Delta ($\delta$): <span id="valDelta">0.5</span></label>
+              <input type="range" id="paramDelta" min="0.01" max="2" step="0.01" value="0.5">
+            </div>
+            <div class="status-indicator" id="limitStatus">Status: Checking...</div>
+          </div>
+        </div>
+        <p class="explanation">
+          <b>Goal:</b> For a given error margin $\epsilon$ (the horizontal band), find a input range $\delta$ (the
+          vertical band) such that the function graph stays entirely within the rectangle.
+          If the graph exits the top or bottom of the box before exiting the sides, your $\delta$ is too big!
+        </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Module 3: Riemann Sums -->
+    <section id="riemann" class="module">
+      <div class="module-header">
+        <h2>Riemann Sums</h2>
+        <p>Approximating the area under a curve.</p>
+        <div class="math-display">
+          $$ \int_a^b f(x) dx \approx \sum_{i=1}^n f(x_i^*) \Delta x $$
+        </div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="riemannCanvas"></canvas>
+        <div class="controls">
+          <div class="control-group">
+            <label>Rectangles (n): <span id="valN">10</span></label>
+            <input type="range" id="paramN" min="2" max="100" step="1" value="10">
+          </div>
+          <div class="control-group">
+            <label>Method:</label>
+            <div class="radio-group">
+              <label><input type="radio" name="riemannMethod" value="left" checked> Left</label>
+              <label><input type="radio" name="riemannMethod" value="mid"> Midpoint</label>
+              <label><input type="radio" name="riemannMethod" value="right"> Right</label>
+            </div>
+          </div>
+          <div class="stats-display">
+            <div>Actual Area: <span id="actualArea">...</span></div>
+            <div>Approx Area: <span id="approxArea">...</span></div>
+            <div>Error: <span id="errorArea">...</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="explanation">
+        As $n \to \infty$, the sum of the rectangle areas converges to the exact area under the curve. Notice how the
+        <b>Midpoint</b> rule usually converges faster than Left or Right!
+      </p>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Module 4: Taylor Series -->
+    <section id="taylor" class="module">
+      <div class="module-header">
+        <h2>Taylor Series</h2>
+        <p>Approximating functions with polynomials.</p>
+        <div class="math-display">
+          $$ f(x) \approx P_n(x) = \sum_{k=0}^n \frac{f^{(k)}(a)}{k!} (x-a)^k $$
+        </div>
+      </div>
+
+      <div class="canvas-wrapper">
+        <canvas id="taylorCanvas"></canvas>
+        <div class="controls">
+          <div class="control-group">
+            <label>Degree (n): <span id="valDegree">1</span></label>
+            <input type="range" id="paramDegree" min="0" max="15" step="1" value="1">
+          </div>
+          <div class="control-group">
+            <label>Center (a): <span id="valCenter">0</span></label>
+            <input type="range" id="paramCenter" min="-3" max="3" step="0.1" value="0">
+          </div>
+          <div class="control-group">
+            <label>Function:</label>
+            <select id="taylorFunc">
+              <option value="sin">sin(x)</option>
+              <option value="cos">cos(x)</option>
+              <option value="exp">e^x</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <p class="explanation">
+        A Taylor Series builds a polynomial that matches the function's value, slope, curvature, etc., at a single point
+        $a$.
+        Increase the <b>Degree</b> to see the polynomial "hug" the function further away from the center.
+      </p>
+    </section>
+
+  </div>
+
+  <script src="analysis.js"></script>
+  <!-- Re-use existing script for dark mode toggle if compatible, otherwise we handle it in analysis.js -->
+  <script>
+    // Simple dark mode toggle reuse
+    const toggleBtn = document.getElementById('toggleTheme');
+    const themeIcon = document.getElementById('tti');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      if (document.body.classList.contains('dark-theme')) {
+        themeIcon.src = "images/Sun.png";
+      } else {
+        themeIcon.src = "images/Moon.png";
+      }
+    });
+  </script>
+</body>
+
+</html>
